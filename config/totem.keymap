@@ -63,6 +63,17 @@
         };
     };
 
+    behaviors {
+        mo_sk: mo_sk {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_SK";
+            bindings = <&mo>, <&sk>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -85,10 +96,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &kp Q       &kp W        &kp F       &kp P        &kp B        &kp J    &kp L        &kp U       &kp Y        &kp SEMI
-       &mt LALT A  &mt LCTRL R  &mt LGUI S  &mt LSHFT T  &kp D        &kp M    &mt RSHFT N  &mt RGUI E  &mt RCTRL I  &mt RALT O
-&kp Q  &kp Z       &kp X        &kp C       &kp D        &kp V        &kp K    &kp H        &kp COMMA   &kp DOT      &kp FSLH    &kp BSLH
-                                &kp DEL     &lt NAV TAB  &kp SPACE    &kp RET  &lt SYM ESC  &kp BSPC
+       &kp Z       &kp Y        &kp O          &kp U        &kp SEMICOLON     &kp Q    &kp L          &kp D       &kp P        &kp X
+       &mt LALT C  &mt LCTRL I  &mt LGUI E     &mt LSHFT A  &kp EQUAL         &kp K    &mt RSHFT H    &mt RGUI T  &mt RCTRL N  &mt RALT S
+&kp W  &kp SQT     &kp MINUS    &kp COMMA      &kp PERIOD   &kp SLASH         &kp J    &kp M          &kp G       &kp B        &kp V       &kp F
+                                &kp BACKSPACE  &lt NAV TAB  &mo_sk 6 LSHFT    &kp RET  &lt SYM SPACE  &kp R
             >;
         };
 
@@ -220,6 +231,17 @@
 &trans  &kp J        &kp LS(C)     &kp LC(F16)   &kp LS(V)      &kp LC(F15)    &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
                                    &trans        &kp LC(F12)    &kp LC(F11)    &trans  &trans  &trans
             >;
+        };
+
+        arabic_layer {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "ARA";
         };
     };
 };
