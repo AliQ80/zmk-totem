@@ -80,7 +80,7 @@
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp RC(BACKSPACE)>;
         };
-    };
+
 
         /* Homerow Mods */
         /* Homerow Mods */
