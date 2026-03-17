@@ -1,0 +1,213 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &totem_physical_layout;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <10>;
+        rows = <4>;
+        map = <
+                RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4)    RC(0,5) RC(0,6) RC(0,7) RC(0,8) RC(0,9)
+                RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4)    RC(1,5) RC(1,6) RC(1,7) RC(1,8) RC(1,9)
+        RC(3,0) RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4)    RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(3,9)
+                                RC(3,2) RC(3,3) RC(3,4)    RC(3,5) RC(3,6) RC(3,7)         
+        >;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row"; 
+        row-gpios
+            = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+    
+     totem_physical_layout: totem_physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "TOTEM Layout";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+        
+        keys
+            // Row 0: Q W E R T | Y U I O P
+            = <&key_physical_attrs 100 100   266   480   0   0   0>  // Q
+            , <&key_physical_attrs 100 100   387   387   0   0   0>  // W
+            , <&key_physical_attrs 100 100   512   326   0   0   0>  // E
+            , <&key_physical_attrs 100 100   620   375   0   0   0>  // R
+            , <&key_physical_attrs 100 100   728   392   0   0   0>  // T
+            , <&key_physical_attrs 100 100  1073   392   0   0   0>  // Y (using P's coord)
+            , <&key_physical_attrs 100 100  1181   375   0   0   0>  // U (using O's coord)
+            , <&key_physical_attrs 100 100  1289   326   0   0   0>  // I (stays)
+            , <&key_physical_attrs 100 100  1412   387   0   0   0>  // O (using U's coord)
+            , <&key_physical_attrs 100 100  1533   480   0   0   0>  // P (using Y's coord)
+            
+            // Row 1: A S D F G | H J K L ;
+            , <&key_physical_attrs 100 100   284   581   0   0   0>  // A
+            , <&key_physical_attrs 100 100   395   489   0   0   0>  // S
+            , <&key_physical_attrs 100 100   512   428   0   0   0>  // D
+            , <&key_physical_attrs 100 100   620   477   0   0   0>  // F
+            , <&key_physical_attrs 100 100   728   494   0   0   0>  // G
+            , <&key_physical_attrs 100 100  1073   495   0   0   0>  // H (using ;'s coord)
+            , <&key_physical_attrs 100 100  1181   477   0   0   0>  // J (using L's coord)
+            , <&key_physical_attrs 100 100  1289   428   0   0   0>  // K (stays)
+            , <&key_physical_attrs 100 100  1404   489   0   0   0>  // L (using J's coord)
+            , <&key_physical_attrs 100 100  1515   581   0   0   0>  // ; (using H's coord)
+            
+            // Row 2: [ Z X C V B | N M , . / ]
+            , <&key_physical_attrs 100 100   188   654   0   0   0>  // [
+            , <&key_physical_attrs 100 100   302   681   0   0   0>  // Z
+            , <&key_physical_attrs 100 100   402   590   0   0   0>  // X
+            , <&key_physical_attrs 100 100   512   530   0   0   0>  // C
+            , <&key_physical_attrs 100 100   620   579   0   0   0>  // V
+            , <&key_physical_attrs 100 100   728   596   0   0   0>  // B
+            , <&key_physical_attrs 100 100  1073   597   0   0   0>  // N (using ]'s coord)
+            , <&key_physical_attrs 100 100  1181   579   0   0   0>  // M (using /'s coord)
+            , <&key_physical_attrs 100 100  1289   530   0   0   0>  // , (using .'s coord)
+            , <&key_physical_attrs 100 100  1398   590   0   0   0>  // . (using ,'s coord)
+            , <&key_physical_attrs 100 100  1499   681   0   0   0>  // / (using M's coord)
+            , <&key_physical_attrs 100 100  1613   654   0   0   0>  // ] (using N's coord)
+            
+            // Row 3: ESC BSPC TAB | ENT SPC LSHFT
+            , <&key_physical_attrs 100 100   588   704   0   0   0>  // ESC
+            , <&key_physical_attrs 100 100   708   720   0   0   0>  // BSPC
+            , <&key_physical_attrs 100 100   819   767   0   0   0>  // TAB
+            , <&key_physical_attrs 100 100   981   767   0   0   0>  // ENT (using LSHFT's coord)
+            , <&key_physical_attrs 100 100  1092   720   0   0   0>  // SPC (stays)
+            , <&key_physical_attrs 100 100  1211   704   0   0   0>  // LSHFT (using ENT's coord)
+            ;
+    };
+
+
+/* working version shifted left
+    totem_physical_layout: totem_physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "TOTEM Layout";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+        
+        keys
+            = <&key_physical_attrs 100 100    0    0 0 0 0>
+            , <&key_physical_attrs 100 100  100    0 0 0 0>
+            , <&key_physical_attrs 100 100  200    0 0 0 0>
+            , <&key_physical_attrs 100 100  300    0 0 0 0>
+            , <&key_physical_attrs 100 100  400    0 0 0 0>
+            , <&key_physical_attrs 100 100  600    0 0 0 0>
+            , <&key_physical_attrs 100 100  700    0 0 0 0>
+            , <&key_physical_attrs 100 100  800    0 0 0 0>
+            , <&key_physical_attrs 100 100  900    0 0 0 0>
+            , <&key_physical_attrs 100 100 1000    0 0 0 0>
+            
+            , <&key_physical_attrs 100 100    0  100 0 0 0>
+            , <&key_physical_attrs 100 100  100  100 0 0 0>
+            , <&key_physical_attrs 100 100  200  100 0 0 0>
+            , <&key_physical_attrs 100 100  300  100 0 0 0>
+            , <&key_physical_attrs 100 100  400  100 0 0 0>
+            , <&key_physical_attrs 100 100  600  100 0 0 0>
+            , <&key_physical_attrs 100 100  700  100 0 0 0>
+            , <&key_physical_attrs 100 100  800  100 0 0 0>
+            , <&key_physical_attrs 100 100  900  100 0 0 0>
+            , <&key_physical_attrs 100 100 1000  100 0 0 0>
+            
+            , <&key_physical_attrs 100 100  (-50)  200 0 0 0>
+            , <&key_physical_attrs 100 100   50  200 0 0 0>
+            , <&key_physical_attrs 100 100  150  200 0 0 0>
+            , <&key_physical_attrs 100 100  250  200 0 0 0>
+            , <&key_physical_attrs 100 100  350  200 0 0 0>
+            , <&key_physical_attrs 100 100  450  200 0 0 0>
+            , <&key_physical_attrs 100 100  650  200 0 0 0>
+            , <&key_physical_attrs 100 100  750  200 0 0 0>
+            , <&key_physical_attrs 100 100  850  200 0 0 0>
+            , <&key_physical_attrs 100 100  950  200 0 0 0>
+            , <&key_physical_attrs 100 100 1050  200 0 0 0>
+            , <&key_physical_attrs 100 100 1150  200 0 0 0>
+            
+            , <&key_physical_attrs 100 100  200  300 0 0 0>
+            , <&key_physical_attrs 100 100  300  300 0 0 0>
+            , <&key_physical_attrs 100 100  400  300 0 0 0>
+            , <&key_physical_attrs 100 100  600  300 0 0 0>
+            , <&key_physical_attrs 100 100  700  300 0 0 0>
+            , <&key_physical_attrs 100 100  800  300 0 0 0>
+            ;
+    };
+*/
+/*  working test
+    totem_physical_layout: totem_physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "TOTEM Layout";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+        
+        keys
+            = <&key_physical_attrs 100 100 0 0 0 0 0>
+            , <&key_physical_attrs 100 100 100 0 0 0 0>
+            , <&key_physical_attrs 100 100 200 0 0 0 0>
+            ;
+    };
+*/
+
+/*
+    totem_physical_layout: totem_physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "TOTEM Layout";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+        
+        keys
+            = <&key_physical_attrs 100 100   4435    8000   1000   4435    8000>
+            , <&key_physical_attrs 100 100   6453    6445    400   6453    6445>
+            , <&key_physical_attrs 100 100   8513    5417      0   8513    5417>
+            , <&key_physical_attrs 100 100  10313    6260      0  10313    6260>
+            , <&key_physical_attrs 100 100  12113    6532      0  12113    6532>
+            , <&key_physical_attrs 100 100  25555    8001 (-1000) 25555    8001>
+            , <&key_physical_attrs 100 100  23529    6445  (-400) 23529    6445>
+            , <&key_physical_attrs 100 100  21475    5417      0  21475    5417>
+            , <&key_physical_attrs 100 100  19675    6260      0  19675    6260>
+            , <&key_physical_attrs 100 100  17875    6532      0  17875    6532>
+            , <&key_physical_attrs 100 100   4730    9674   1000   4730    9674>
+            , <&key_physical_attrs 100 100   6572    8141    400   6572    8141>
+            , <&key_physical_attrs 100 100   8513    7117      0   8513    7117>
+            , <&key_physical_attrs 100 100  10313    7960      0  10313    7960>
+            , <&key_physical_attrs 100 100  12113    8232      0  12113    8232>
+            , <&key_physical_attrs 100 100  25260    9676 (-1000) 25260    9676>
+            , <&key_physical_attrs 100 100  23410    8141  (-400) 23410    8141>
+            , <&key_physical_attrs 100 100  21475    7117      0  21475    7117>
+            , <&key_physical_attrs 100 100  19675    7960      0  19675    7960>
+            , <&key_physical_attrs 100 100  17875    8241      0  17875    8241>
+            , <&key_physical_attrs 100 100   3115   10909   1000   3115   10909>
+            , <&key_physical_attrs 100 100   5025   11348   1000   5025   11348>
+            , <&key_physical_attrs 100 100   6690    9836    400   6690    9836>
+            , <&key_physical_attrs 100 100   8513    8817      0   8513    8817>
+            , <&key_physical_attrs 100 100  10313    9660      0  10313    9660>
+            , <&key_physical_attrs 100 100  12113    9932      0  12113    9932>
+            , <&key_physical_attrs 100 100  24965   11350 (-1000) 24965   11350>
+            , <&key_physical_attrs 100 100  23292    9837  (-400) 23292    9837>
+            , <&key_physical_attrs 100 100  21475    8817      0  21475    8817>
+            , <&key_physical_attrs 100 100  19675    9660      0  19675    9660>
+            , <&key_physical_attrs 100 100  17875    9941      0  17875    9941>
+            , <&key_physical_attrs 100 100  26870   10909 (-1000) 26870   10909>
+            , <&key_physical_attrs 100 100   9810   11731      0   9810   11731>
+            , <&key_physical_attrs 100 100  11803   12009 (-1500) 11803   12009>
+            , <&key_physical_attrs 100 100  13648   12776 (-3000) 13648   12776>
+            , <&key_physical_attrs 100 100  20178   11731      0  20178   11731>
+            , <&key_physical_attrs 100 100  18188   12009   1500  18188   12009>
+            , <&key_physical_attrs 100 100  16343   12776   3000  16343   12776>
+            ;
+    };
+*/
+
+};

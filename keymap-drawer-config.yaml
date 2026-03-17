@@ -1,0 +1,52 @@
+draw_config:
+  glyph_tap_size: 14
+  glyph_hold_size: 12
+  dark_mode: true
+  
+parse_config:
+  raw_binding_map:
+    # Mouse
+    '&mkp LCLK': '🖱L'
+    '&mkp RCLK': '🖱R'
+    '&mkp MB1': '🖱L'
+    '&mkp MB2': '🖱R'
+    '&mkp MB3': '🖱M'
+    '&mkp MB4': '◁'
+    '&mkp MB5': '▷'
+    '&msc SCRL_UP': 'WH↑'
+    '&msc SCRL_DOWN': 'WH↓'
+    '&msc SCRL_LEFT': 'WH←'
+    '&msc SCRL_RIGHT': 'WH→'
+    '&mmv MOVE_UP': 'MS↑'
+    '&mmv MOVE_DOWN': 'MS↓'
+    '&mmv MOVE_LEFT': 'MS←'
+    '&mmv MOVE_RIGHT': 'MS→'
+    
+    # Media
+    '&kp C_VOL_UP': 'ᐱ🔊'
+    '&kp C_VOL_DN': 'ᐯ🔉'
+    '&kp C_MUTE': '🔇'
+    '&kp C_BRI_UP': 'ᐱ☀'
+    '&kp C_BRI_DN': 'ᐯ☀'
+    '&kp C_PP': '⏯'
+    '&kp C_PREV': '⏮'
+    '&kp C_NEXT': '⏭'
+    
+    # Modifiers
+    '&kp ENTER': '⮐'
+    '&kp LSHFT': '⇧'
+    '&kp BSPC': '⌫'
+    '&kp SPACE': '␣'
+    
+    # Locks
+    '&mac_lock': '🔒Mac'
+    '&win_lock': '🔒Win'
+    
+    # Bluetooth
+    '&bt BT_SEL 0': 'ᛒ0'
+    '&bt BT_SEL 1': 'ᛒ1'
+    '&bt BT_SEL 2': 'ᛒ2'
+    '&bt BT_SEL 3': 'ᛒ3'
+    '&bt BT_SEL 4': 'ᛒ4'
+    '&bt BT_CLR': 'ᛒ✖'
+    '&bt BT_CLR_ALL': 'ᛒ⌫'
