@@ -5,271 +5,203 @@ layers:
   - W
   - F
   - P
-  - G
+  - B
   - J
   - L
   - U
   - Y
-  - ''''
-  - {t: A, h: LGUI}
+  - ;
+  - {t: A, h: LCTRL}
   - {t: R, h: LALT}
-  - {t: S, h: LCTRL}
-  - {t: T, h: LSHFT}
-  - D
-  - H
-  - {t: N, h: RSHFT}
-  - {t: E, h: RCTRL}
-  - {t: I, h: RALT}
-  - {t: O, h: RGUI}
-  - ''
-  - Z
-  - {t: X, h: RALT}
-  - C
-  - V
-  - B
-  - K
+  - {t: S, h: LGUI}
+  - {t: T, h: LSHIFT}
+  - G
   - M
+  - {t: N, h: RSHFT}
+  - {t: E, h: RGUI}
+  - {t: I, h: RALT}
+  - {t: O, h: RCTRL}
+  - ESC
+  - Z
+  - X
+  - C
+  - D
+  - V
+  - K
+  - H
   - ','
-  - {t: ., h: RALT}
+  - .
   - /
-  - ''
-  - {t: ESC, h: trade}
+  - ENTER
+  - {t: TAB, h: mod}
+  - '&DEL_L1'
+  - '&ls_cw'
+  - '&rs_cw'
   - {t: SPACE, h: nav}
-  - {t: TAB, h: mouse}
-  - {t: RET, h: sym}
-  - {t: BSPC, h: num}
-  - {t: DEL, h: fun}
-  nav:
-  - ''
-  - ''
-  - ''
-  - {t: base, h: toggle}
-  - ''
-  - AGAIN
-  - Sft+INS
-  - Ctl+INS
-  - Sft+DEL
-  - UNDO
-  - LGUI
-  - LALT
-  - LCTRL
-  - LSHFT
-  - ''
-  - {t: '&caps_word', s: CAPS}
-  - LEFT
-  - DOWN
-  - UP
-  - RIGHT
-  - ''
-  - ''
-  - RALT
-  - {t: num, h: toggle}
-  - {t: nav, h: toggle}
-  - INS
-  - HOME
-  - PG DN
-  - PG UP
-  - END
-  - UNDO
-  - ''
-  - ''
-  - {type: held}
-  - ''
-  - RET
-  - BSPC
-  - DEL
-  mouse:
-  - ''
-  - ''
-  - ''
-  - {t: base, h: toggle}
-  - '&bootloader'
-  - AGAIN
-  - Sft+INS
-  - Ctl+INS
-  - Sft+DEL
-  - UNDO
-  - LGUI
-  - LALT
-  - LCTRL
-  - LSHFT
-  - ''
-  - ''
-  - '&mmv MOVE_LEFT'
-  - '&mmv MOVE_DOWN'
-  - '&mmv MOVE_UP'
-  - '&mmv MOVE_RIGHT'
-  - ''
-  - ''
-  - RALT
-  - {t: sym, h: toggle}
-  - {t: mouse, h: toggle}
-  - ''
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_DOWN'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_RIGHT'
-  - UNDO
-  - ''
-  - ''
-  - ''
-  - {type: held}
-  - '&mkp MB2'
-  - '&mkp MB1'
-  - '&mkp MB3'
-  trade:
-  - ''
-  - ''
-  - ''
-  - {t: base, h: toggle}
-  - ''
-  - ''
-  - F13
-  - F14
-  - F15
-  - F16
-  - LGUI
-  - LALT
-  - LCTRL
-  - LSHFT
-  - ''
-  - ''
-  - F17
-  - F18
-  - F19
-  - F20
-  - ''
-  - ''
-  - RALT
-  - {t: fun, h: toggle}
-  - {t: trade, h: toggle}
-  - ''
-  - F21
-  - F22
-  - F23
-  - F24
-  - ''
-  - ''
-  - {type: held}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  num:
-  - '['
+  - {t: '''', h: adj}
+  code:
+  - '`'
+  - '@'
+  - '#'
+  - ''''
+  - '"'
+  - /
   - '7'
   - '8'
   - '9'
-  - ']'
-  - ''
-  - {t: base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ;
-  - '4'
-  - '5'
-  - '6'
+  - '*'
+  - '['
+  - {t: ']', h: LALT}
+  - {t: (, h: LSHFT}
+  - {t: ), h: LCTRL}
+  - _
+  - '-'
+  - {t: '4', h: RCTRL}
+  - {t: '5', h: RSHFT}
+  - {t: '6', h: RALT}
+  - +
+  - ^
+  - '&'
+  - '|'
+  - '!'
+  - '~'
+  - $
   - '='
-  - ''
-  - LSHFT
-  - LCTRL
-  - LALT
-  - LGUI
-  - ''
-  - '`'
   - '1'
   - '2'
   - '3'
-  - \
-  - {t: num, h: toggle}
-  - {t: nav, h: toggle}
-  - RALT
-  - ''
-  - ''
-  - ''
   - .
-  - '0'
-  - '-'
-  - ''
-  - {type: held}
-  - ''
-  sym:
-  - '{'
-  - '&'
-  - '*'
-  - (
-  - '}'
-  - ''
-  - {t: base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - ':'
-  - $
   - '%'
-  - ^
-  - +
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ','
+  - '0'
+  - \
+  nav:
+  - {t: ▽, type: trans}
+  - '&msc SCRL_UP'
+  - '&mmv MOVE_UP'
+  - '&mkp LCLK'
+  - '&mkp RCLK'
+  - PG UP
+  - HOME
+  - UP
+  - END
+  - DEL
+  - '&msc SCRL_LEFT'
+  - '&mmv MOVE_LEFT'
+  - '&mmv MOVE_DOWN'
+  - '&mmv MOVE_RIGHT'
+  - '&msc SCRL_RIGHT'
+  - PG DN
+  - LEFT
+  - DOWN
+  - RIGHT
+  - INS
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&msc SCRL_DOWN'
+  - {t: ▽, type: trans}
+  - '&mkp MB4'
+  - '&mkp MB5'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - PSCRN
+  - UNDO
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - LSHFT
   - LCTRL
-  - LALT
-  - LGUI
-  - ''
-  - '~'
-  - '!'
-  - '@'
-  - '#'
-  - '|'
-  - {t: sym, h: toggle}
-  - {t: mouse, h: toggle}
-  - RALT
-  - ''
-  - ''
-  - ''
-  - (
-  - )
-  - _
+  - {t: ▽, type: trans}
   - {type: held}
-  - ''
-  - ''
-  fun:
-  - F12
+  - {t: ▽, type: trans}
+  mod:
+  - '&mac_lock'
+  - '&win_lock'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - PREV
+  - PP
+  - NEXT
+  - BRI UP
+  - {t: ▽, type: trans}
+  - CAPS
+  - {t: LALT, h: sticky}
+  - {t: LSHFT, h: sticky}
+  - {t: LCTRL, h: sticky}
+  - {t: ▽, type: trans}
+  - BSPC
+  - DEL
+  - SPACE
+  - ENTER
+  - TAB
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - VOL DN
+  - MUTE
+  - VOL UP
+  - BRI DN
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  adj:
+  - '&studio_unlock'
   - F7
   - F8
   - F9
-  - PSCRN
-  - '&bootloader'
-  - {t: base, h: toggle}
-  - ''
-  - ''
-  - ''
-  - F11
+  - F12
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - BT CLR ALL
+  - {t: ▽, type: trans}
   - F4
   - F5
   - F6
-  - SLCK
-  - ''
-  - LSHFT
-  - LCTRL
-  - LALT
-  - LGUI
-  - ''
-  - F10
+  - F11
+  - {t: ▽, type: trans}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - F1
   - F2
   - F3
-  - PAUSE BREAK
-  - {t: fun, h: toggle}
-  - {t: trade, h: toggle}
-  - RALT
-  - ''
-  - ''
-  - ''
-  - APP
-  - SPACE
-  - TAB
-  - ''
-  - ''
+  - F10
+  - {t: ▽, type: trans}
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - BT CLR
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
+combos:
+- p: [0, 1]
+  k: ESC
+  l: [base]
+- p: [26, 27]
+  k: Alt+SPACE
+  l: [base]
+- p: [8, 9]
+  k: AltGr+N
+  l: [base]
