@@ -40,6 +40,7 @@ Function keys, Bluetooth device switching, and ZMK Studio unlock.
 
 ## Keymap Visualization
 
+![Totem Keymap](./keympt-drawer/totem.svg)
 ![Totem Keymap](totem-keymap.svg)
 
 ## Installation
@@ -96,9 +97,9 @@ To change the Bluetooth device name:
 
 Note: The settings reset is required because the keyboard name is stored in persistent memory.
 
-# Resources
+## Resources
 
-## zmk-config
+### zmk-config
 
 [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/)
 
