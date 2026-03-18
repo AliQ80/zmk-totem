@@ -40,8 +40,7 @@ Function keys, Bluetooth device switching, and ZMK Studio unlock.
 
 ## Keymap Visualization
 
-![Totem Keymap](./keympt-drawer/totem.svg)
-![Totem Keymap](totem-keymap.svg)
+![Totem Keymap](./keymap-drawer/totem.svg)
 
 ## Installation
 
