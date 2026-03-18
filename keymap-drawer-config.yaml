@@ -38,6 +38,11 @@ parse_config:
     '&kp BSPC': '⌫'
     '&kp SPACE': '␣'
     
+    # special
+    '&DEL_L1': '⌫ ^⌫ L1'
+    'ls_cw': '⇧ CW'
+    'rs_cw': '⇧ CW'
+
     # Locks
     '&mac_lock': '🔒Mac'
     '&win_lock': '🔒Win'

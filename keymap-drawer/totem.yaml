@@ -1,0 +1,275 @@
+layout: {zmk_keyboard: totem}
+layers:
+  base:
+  - Q
+  - W
+  - F
+  - P
+  - G
+  - J
+  - L
+  - U
+  - Y
+  - ''''
+  - {t: A, h: LGUI}
+  - {t: R, h: LALT}
+  - {t: S, h: LCTRL}
+  - {t: T, h: LSHFT}
+  - D
+  - H
+  - {t: N, h: RSHFT}
+  - {t: E, h: RCTRL}
+  - {t: I, h: RALT}
+  - {t: O, h: RGUI}
+  - ''
+  - Z
+  - {t: X, h: RALT}
+  - C
+  - V
+  - B
+  - K
+  - M
+  - ','
+  - {t: ., h: RALT}
+  - /
+  - ''
+  - {t: ESC, h: trade}
+  - {t: SPACE, h: nav}
+  - {t: TAB, h: mouse}
+  - {t: RET, h: sym}
+  - {t: BSPC, h: num}
+  - {t: DEL, h: fun}
+  nav:
+  - ''
+  - ''
+  - ''
+  - {t: base, h: toggle}
+  - ''
+  - AGAIN
+  - Sft+INS
+  - Ctl+INS
+  - Sft+DEL
+  - UNDO
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHFT
+  - ''
+  - {t: '&caps_word', s: CAPS}
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
+  - ''
+  - ''
+  - RALT
+  - {t: num, h: toggle}
+  - {t: nav, h: toggle}
+  - INS
+  - HOME
+  - PG DN
+  - PG UP
+  - END
+  - UNDO
+  - ''
+  - ''
+  - {type: held}
+  - ''
+  - RET
+  - BSPC
+  - DEL
+  mouse:
+  - ''
+  - ''
+  - ''
+  - {t: base, h: toggle}
+  - '&bootloader'
+  - AGAIN
+  - Sft+INS
+  - Ctl+INS
+  - Sft+DEL
+  - UNDO
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHFT
+  - ''
+  - ''
+  - '&mmv MOVE_LEFT'
+  - '&mmv MOVE_DOWN'
+  - '&mmv MOVE_UP'
+  - '&mmv MOVE_RIGHT'
+  - ''
+  - ''
+  - RALT
+  - {t: sym, h: toggle}
+  - {t: mouse, h: toggle}
+  - ''
+  - '&msc SCRL_LEFT'
+  - '&msc SCRL_DOWN'
+  - '&msc SCRL_UP'
+  - '&msc SCRL_RIGHT'
+  - UNDO
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - '&mkp MB2'
+  - '&mkp MB1'
+  - '&mkp MB3'
+  trade:
+  - ''
+  - ''
+  - ''
+  - {t: base, h: toggle}
+  - ''
+  - ''
+  - F13
+  - F14
+  - F15
+  - F16
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHFT
+  - ''
+  - ''
+  - F17
+  - F18
+  - F19
+  - F20
+  - ''
+  - ''
+  - RALT
+  - {t: fun, h: toggle}
+  - {t: trade, h: toggle}
+  - ''
+  - F21
+  - F22
+  - F23
+  - F24
+  - ''
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  num:
+  - '['
+  - '7'
+  - '8'
+  - '9'
+  - ']'
+  - ''
+  - {t: base, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ;
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - ''
+  - LSHFT
+  - LCTRL
+  - LALT
+  - LGUI
+  - ''
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - \
+  - {t: num, h: toggle}
+  - {t: nav, h: toggle}
+  - RALT
+  - ''
+  - ''
+  - ''
+  - .
+  - '0'
+  - '-'
+  - ''
+  - {type: held}
+  - ''
+  sym:
+  - '{'
+  - '&'
+  - '*'
+  - (
+  - '}'
+  - ''
+  - {t: base, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ':'
+  - $
+  - '%'
+  - ^
+  - +
+  - ''
+  - LSHFT
+  - LCTRL
+  - LALT
+  - LGUI
+  - ''
+  - '~'
+  - '!'
+  - '@'
+  - '#'
+  - '|'
+  - {t: sym, h: toggle}
+  - {t: mouse, h: toggle}
+  - RALT
+  - ''
+  - ''
+  - ''
+  - (
+  - )
+  - _
+  - {type: held}
+  - ''
+  - ''
+  fun:
+  - F12
+  - F7
+  - F8
+  - F9
+  - PSCRN
+  - '&bootloader'
+  - {t: base, h: toggle}
+  - ''
+  - ''
+  - ''
+  - F11
+  - F4
+  - F5
+  - F6
+  - SLCK
+  - ''
+  - LSHFT
+  - LCTRL
+  - LALT
+  - LGUI
+  - ''
+  - F10
+  - F1
+  - F2
+  - F3
+  - PAUSE BREAK
+  - {t: fun, h: toggle}
+  - {t: trade, h: toggle}
+  - RALT
+  - ''
+  - ''
+  - ''
+  - APP
+  - SPACE
+  - TAB
+  - ''
+  - ''
+  - {type: held}
