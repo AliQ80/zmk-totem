@@ -336,18 +336,18 @@
 
         code_layer {
             bindings = <
-           &kp GRAVE  &kp AT          &kp HASH         &kp SQT          &kp DQT      &kp FSLH   &kp N7         &kp N8         &kp N9        &kp MINUS
-           &kp LBKT   &hml LALT RBKT  &hml LSHFT LPAR  &hml LCTRL RPAR  &kp UNDER    &kp STAR   &hmr RCTRL N4  &hmr RSHFT N5  &hmr RALT N6  &kp PLUS
-&kp CARET  &kp AMPS   &kp PIPE        &kp EXCL         &kp TILDE        &kp DLLR     &kp PRCNT  &kp N1         &kp N2         &kp N3        &kp DOT    &kp EQUAL
-                                      &trans           &trans           &trans       &kp COMMA  &kp N0         &kp BSLH
+           &kp EXCL         &kp AT          &kp HASH        &kp DLLR         &kp PRCNT    &kp FSLH   &kp N7         &kp N8        &kp N9        &kp STAR
+           &hml LCTRL LBKT  &hml LALT RBKT  &hml LGUI LPAR  &hml LSHFT RPAR  &kp UNDER    &kp MINUS  &hmr RSHFT N4  &hmr RGUI N5  &hmr RALT N6  &hmr RCTRL PLUS
+&kp TILDE  &kp AMPS         &kp PIPE        &kp GRAVE       &kp DQT          &kp SQT      &kp EQUAL  &kp N1         &kp N2        &kp N3        &kp BSLH         &kp CARET
+                                            &trans          &trans           &trans       &kp COMMA  &kp N0         &kp DOT
             >;
         };
 
         nav_layer {
             bindings = <
-        &trans          &msc SCRL_UP    &mmv MOVE_UP    &mkp LCLK        &mkp RCLK          &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp DEL
+        &trans          &msc SCRL_UP    &mmv MOVE_UP    &mkp MB3         &trans             &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp DEL
         &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp INS
-&trans  &trans          &msc SCRL_DOWN  &trans          &mkp MB4         &mkp MB5           &trans     &trans    &trans    &kp PSCRN  &kp K_UNDO  &trans
+&trans  &trans          &msc SCRL_DOWN  &trans          &mkp LCLK        &mkp RCLK          &trans     &trans    &trans    &kp PSCRN  &kp K_UNDO  &trans
                                         &trans          &kp LSHFT        &kp LCTRL          &trans     &trans    &trans
             >;
         };
