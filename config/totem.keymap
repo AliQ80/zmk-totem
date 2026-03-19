@@ -220,13 +220,6 @@
             mods = <(MOD_RSFT)>;
         };
 
-        td_lang: td_lang {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_LANG";
-            #binding-cells = <0>;
-            bindings = <&lang_lx>, <&arabic_mac>;
-        };
-
         H_Vox: H_Vox {
             compatible = "zmk,behavior-hold-tap";
             label = "H_VOX";
