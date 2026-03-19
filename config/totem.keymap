@@ -20,6 +20,9 @@
             require-prior-idle-ms = <300>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <5 6 7 8 9 19 31 30 29 18 17 16 15 26 27 28 37 36 35>;
+            hold-trigger-on-release;
         };
 
         hmr: homerow_mods_right {
@@ -30,6 +33,9 @@
             require-prior-idle-ms = <300>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <2 1 0 20 21 10 22 11 12 23 24 25 34 33 32 11 12 22 23 24 3 4 13 14>;
+            hold-trigger-on-release;
         };
 
         td_bs_pipe: backslash_pipe {
@@ -129,9 +135,9 @@
 
         code_layer {
             bindings = <
-           &kp GRAVE  &kp AT          &kp HASH         &kp SQT          &kp DQT      &kp FSLH   &kp N7         &kp N8         &kp N9        &kp STAR
-           &kp LBKT   &hml LALT RBKT  &hml LSHFT LPAR  &hml LCTRL RPAR  &kp UNDER    &kp MINUS  &hmr RCTRL N4  &hmr RSHFT N5  &hmr RALT N6  &kp PLUS
-&kp CARET  &kp AMPS   &kp PIPE        &kp EXCL         &kp TILDE        &kp DLLR     &kp EQUAL  &kp N1         &kp N2         &kp N3        &kp DOT   &kp PRCNT
+           &kp GRAVE  &kp AT          &kp HASH         &kp SQT          &kp DQT      &kp FSLH   &kp N7         &kp N8         &kp N9        &kp MINUS
+           &kp LBKT   &hml LALT RBKT  &hml LSHFT LPAR  &hml LCTRL RPAR  &kp UNDER    &kp STAR   &hmr RCTRL N4  &hmr RSHFT N5  &hmr RALT N6  &kp PLUS
+&kp CARET  &kp AMPS   &kp PIPE        &kp EXCL         &kp TILDE        &kp DLLR     &kp PRCNT  &kp N1         &kp N2         &kp N3        &kp DOT    &kp EQUAL
                                       &trans           &trans           &trans       &kp COMMA  &kp N0         &kp BSLH
             >;
         };
