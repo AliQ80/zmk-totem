@@ -39,6 +39,45 @@ layers:
   - '&rs_cw'
   - {t: ␣, h: nav}
   - {t: '''', h: adj}
+  gallium_layout:
+  - B
+  - L
+  - D
+  - C
+  - V
+  - J
+  - Y
+  - O
+  - U
+  - ','
+  - N
+  - R
+  - T
+  - S
+  - G
+  - P
+  - H
+  - A
+  - E
+  - I
+  - {t: ▽, type: trans}
+  - X
+  - Q
+  - M
+  - W
+  - Z
+  - K
+  - F
+  - ''''
+  - ;
+  - .
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   arabic:
   - '&sad_dhad'
   - {t: E, s: A}
@@ -246,3 +285,5 @@ combos:
   l: [base]
 - p: [30, 29]
   k: '&lang_lx'
+- p: [21, 22]
+  k: {t: gallium_layout, h: toggle}
