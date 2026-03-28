@@ -39,6 +39,45 @@ layers:
   - '&rs_cw'
   - {t: ␣, h: nav}
   - {t: '''', h: adj}
+  arabic:
+  - '&sad_dhad'
+  - {t: E, s: A}
+  - {t: R, s: S}
+  - {t: T, s: E}
+  - {t: Y, s: R}
+  - {t: U, s: X}
+  - '&haa_taa'
+  - O
+  - P
+  - '['
+  - {t: A, h: LCTRL}
+  - {t: S, h: LALT}
+  - {t: D, h: LGUI}
+  - {t: F, h: ⇧}
+  - G
+  - {t: H, s: N}
+  - {t: J, h: RSHFT}
+  - {t: K, h: RGUI}
+  - {t: L, h: RALT}
+  - {t: ;, h: RCTRL}
+  - {t: ▽, type: trans}
+  - /
+  - {t: '''', s: N}
+  - {t: '`', s: Z}
+  - {t: ']', s: X}
+  - {t: ., s: H}
+  - {t: V, s: Y}
+  - {t: ',', s: C}
+  - Sft+K
+  - Sft+.
+  - {t: Sft+L, s: '?'}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   code:
   - '!'
   - '@'
@@ -205,3 +244,5 @@ combos:
 - p: [8, 9]
   k: AltGr+N
   l: [base]
+- p: [30, 29]
+  k: '&lang_lx'
