@@ -50,7 +50,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DEL_L1";
             #binding-cells = <0>;
-            bindings = <&lt 1 BACKSPACE>, <&kp LC(BACKSPACE)>;
+            bindings = <&lt 2 BACKSPACE>, <&kp LC(BACKSPACE)>;
         };
 
         ls_cw: ls_cw {
@@ -228,6 +228,20 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        haa_taa: haa_taa {
+            compatible = "zmk,behavior-tap-dance";
+            label = "HAA_TAA";
+            #binding-cells = <0>;
+            bindings = <&I_haa>, <&kp M>;
+        };
+
+        sad_dhad: sad_dhad {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SAD_DHAD";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&kp Q>;
+        };
     };
 
     combos {
@@ -254,6 +268,11 @@
             bindings = <&kp RA(N)>;
             layers = <0>;
         };
+
+        language {
+            bindings = <&lang_lx>;
+            key-positions = <30 29>;
+        };
     };
 
     macros {
@@ -267,7 +286,7 @@
         lang_lx: lang_lx {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RC(SPACE)>, <&macro_wait_time 500>, <&tog 2>;
+            bindings = <&kp RC(SPACE)>, <&macro_wait_time 500>, <&tog 1>;
 
             label = "LANG_LX";
         };
@@ -320,10 +339,19 @@
 
         base_layer {
             bindings = <
-         &kp Q         &kp W        &kp F        &kp P          &kp B     &kp J   &kp L          &kp U               &kp Y        &kp SEMI
-         &hml LCTRL A  &hml LALT R  &hml LGUI S  &hml LSHIFT T  &kp G     &kp M   &hmr RSHFT N   &hmr RGUI E         &hmr RALT I  &hmr RCTRL O
-&kp ESC  &kp Z         &kp X        &kp C        &kp D          &kp V     &kp K   &kp H          &kp COMMA           &kp DOT      &kp FSLH      &kp ENTER
-                                    &lt 3 TAB    &DEL_L1        &ls_cw    &rs_cw  &lt NAV SPACE  &lt 4 SINGLE_QUOTE
+         &kp Q         &kp W        &kp F        &kp P          &kp B     &kp J   &kp L         &kp U               &kp Y        &kp SEMI
+         &hml LCTRL A  &hml LALT R  &hml LGUI S  &hml LSHIFT T  &kp G     &kp M   &hmr RSHFT N  &hmr RGUI E         &hmr RALT I  &hmr RCTRL O
+&kp ESC  &kp Z         &kp X        &kp C        &kp D          &kp V     &kp K   &kp H         &kp COMMA           &kp DOT      &kp FSLH      &kp ENTER
+                                    &lt 4 TAB    &DEL_L1        &ls_cw    &rs_cw  &lt 3 SPACE   &lt 5 SINGLE_QUOTE
+            >;
+        };
+
+        arabic_layer {
+            bindings = <
+        &sad_dhad     &E_thaa      &R_qaf       &T_faa        &Y_ghain    &U_ain   &haa_taa      &kp O        &kp P        &kp LEFT_BRACKET
+        &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &G_lam      &H_alif  &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr RCTRL SEMI
+&trans  &slsh_thah    &quo_tah     &grv_thal    &rbrkt_dal    &dot_zai    &V_raa   &coma_wow     &kp LS(K)    &kp LS(DOT)  &slash_qmark      &trans
+                                   &trans       &trans        &trans      &trans   &trans        &trans
             >;
         };
 
