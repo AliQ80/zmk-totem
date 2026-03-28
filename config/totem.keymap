@@ -50,7 +50,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DEL_L1";
             #binding-cells = <0>;
-            bindings = <&lt 2 BACKSPACE>, <&kp LC(BACKSPACE)>;
+            bindings = <&lt 3 BACKSPACE>, <&kp LC(BACKSPACE)>;
         };
 
         ls_cw: ls_cw {
@@ -273,6 +273,11 @@
             bindings = <&lang_lx>;
             key-positions = <30 29>;
         };
+
+        gallium {
+            bindings = <&tog 1>;
+            key-positions = <21 22>;
+        };
     };
 
     macros {
@@ -286,7 +291,7 @@
         lang_lx: lang_lx {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RC(SPACE)>, <&macro_wait_time 500>, <&tog 1>;
+            bindings = <&kp RC(SPACE)>, <&macro_wait_time 500>, <&tog 2>;
 
             label = "LANG_LX";
         };
@@ -342,7 +347,16 @@
          &kp Q         &kp W        &kp F        &kp P          &kp B     &kp J   &kp L         &kp U               &kp Y        &kp SEMI
          &hml LCTRL A  &hml LALT R  &hml LGUI S  &hml LSHIFT T  &kp G     &kp M   &hmr RSHFT N  &hmr RGUI E         &hmr RALT I  &hmr RCTRL O
 &kp ESC  &kp Z         &kp X        &kp C        &kp D          &kp V     &kp K   &kp H         &kp COMMA           &kp DOT      &kp FSLH      &kp ENTER
-                                    &lt 4 TAB    &DEL_L1        &ls_cw    &rs_cw  &lt 3 SPACE   &lt 5 SINGLE_QUOTE
+                                    &lt 5 TAB    &DEL_L1        &ls_cw    &rs_cw  &lt 4 SPACE   &lt 6 SINGLE_QUOTE
+            >;
+        };
+
+        gallium_layout {
+            bindings = <
+        &kp B  &kp L  &kp D   &kp C   &kp V     &kp J   &kp Y   &kp O     &kp U     &kp COMMA
+        &kp N  &kp R  &kp T   &kp S   &kp G     &kp P   &kp H   &kp A     &kp E     &kp I
+&trans  &kp X  &kp Q  &kp M   &kp W   &kp Z     &kp K   &kp F   &kp APOS  &kp SEMI  &kp DOT    &trans
+                      &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
