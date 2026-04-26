@@ -34,10 +34,10 @@ layers:
   - /
   - ⮐
   - {t: TAB, h: mod}
-  - '&ls_cw'
   - ⌫ ^⌫ L1
-  - {t: ␣, h: nav}
+  - '&ls_cw'
   - '&rs_cw'
+  - {t: ␣, h: nav}
   - {t: '''', h: adj}
   gallium_layout:
   - B
@@ -192,8 +192,8 @@ layers:
   - {t: ▽, type: trans}
   - ⇧
   - LCTRL
-  - {type: held}
   - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   mod:
   - 🔒Mac
