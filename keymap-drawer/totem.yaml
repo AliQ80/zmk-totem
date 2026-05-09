@@ -235,7 +235,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   adj:
-  - '&studio_unlock'
+  - '&none'
   - F7
   - F8
   - F9

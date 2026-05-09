@@ -299,16 +299,14 @@
         mc_vox: mc_vox {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
             bindings =
-                <&macro_press>,
-                <&kp RG(RCTRL)>,
-                <&macro_wait_time 10>,
-                <&kp X>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&kp X>,
-                <&macro_wait_time 10>,
-                <&kp RG(RCTRL)>;
+                <&macro_press &kp LGUI>,
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp X>,
+                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LGUI>;
 
             label = "MC_VOX";
         };
@@ -396,9 +394,14 @@
             >;
         };
 
+        /* ADJ layer:
+         * - &none key position is a placeholder for ZMK Studio
+         * - To enable: uncomment studio lines in totem.conf, replace &none with
+         *   &studio_unlock, and add snippet+cmake-args to build.yaml (left side only)
+         */
         adj_layer {
             bindings = <
-        &studio_unlock  &kp F7  &kp F8  &kp F9  &kp F12    &trans  &trans        &trans        &trans        &bt BT_CLR_ALL
+        &none  &kp F7  &kp F8  &kp F9  &kp F12    &trans  &trans        &trans        &trans        &bt BT_CLR_ALL
         &trans          &kp F4  &kp F5  &kp F6  &kp F11    &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans
 &trans  &trans          &kp F1  &kp F2  &kp F3  &kp F10    &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR      &trans
                                 &trans  &trans  &trans     &trans  &trans        &trans

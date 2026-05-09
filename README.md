@@ -1,12 +1,11 @@
 # Totem ZMK Configuration
 
-Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com/GEIGEIGEIST/totem) split keyboard with **Dual battery monitor and ZMK Studio support**.
+Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com/GEIGEIGEIST/totem) split keyboard with **Dual battery monitoring**.
 
 ## Features
 
 - **Colemak-DH Matrix layout** optimized for ortholinear keyboards
 - **Dual battery monitoring** - Reports battery levels for both keyboard halves
-- **ZMK Studio unlock** for live keymap editing (not in original Totem config)
 - **5 layers** optimized for Python and JavaScript development
 - **Homerow mods** for comfortable modifier access
 - **Mouse support** with scroll and movement controls
@@ -36,7 +35,7 @@ System controls including media keys, screen lock macros, and brightness/volume 
 
 ### ADJ
 
-Function keys, Bluetooth device switching, and ZMK Studio unlock.
+Function keys and Bluetooth device switching.
 
 ## Keymap Visualization
 
@@ -56,7 +55,11 @@ Function keys, Bluetooth device switching, and ZMK Studio unlock.
 
 - **Keyboard:** GEIGEIGEIST Totem (38-key split)
 - **Controller:** Seeeduino XIAO BLE (nRF52840)
-- **Firmware:** ZMK with Studio support
+- **Firmware:** ZMK
+
+### Optional Features
+
+- **ZMK Studio** - Currently disabled (commented out in `config/totem.conf` and `build.yaml`). To enable: uncomment the studio lines, replace `&none` with `&studio_unlock` in the ADJ layer, and add the snippet + cmake-args to `build.yaml`.
 
 ## Special Features
 
