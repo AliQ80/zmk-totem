@@ -235,7 +235,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   adj:
-  - '&none'
+  - ''
   - F7
   - F8
   - F9
