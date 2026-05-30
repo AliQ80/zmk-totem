@@ -45,11 +45,25 @@
 
 > **Note:** Verification tasks 6.1-6.4 require pushing to GitHub and checking the Actions build log. The configuration is complete and ready for build verification.
 
-## 7. Build Error Fixes (Post-Build #27)
+## 7. Build Error Fix: Board-Specific Overlay (Post-Build #27) — REVERTED
 
-- [x] 7.1 Create `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay` with board-specific display hardware configuration (SPI3, PWM, ST7789V init params) + mock kscan + matrix transform
-- [x] 7.2 Update `totem_dongle.zmk.yml` with `compatibility` section declaring `xiao_ble` board compatibility
-- [x] 7.3 Verify APDS9960 sensor node is NOT instantiated (hardware omitted per design)
-- [ ] 7.4 Rebuild and verify all 5 UF2 artifacts are produced successfully
-- [ ] 7.5 Verify build logs show no "Missing ZMK Compat" errors
+> **NOTE:** The fix in Section 7 was wrong. Creating `boards/xiao_ble_zmk.overlay` inside `totem_dongle` duplicates display hardware already provided by YADS's `dongle_screen` shield, causing devicetree node conflicts. This is being reverted in Section 8.
+
+- [x] 7.1 ~~Create `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay`~~ — **REVERT: This file duplicates display hardware from dongle_screen and causes devicetree conflicts**
+- [x] 7.2 ~~Update `totem_dongle.zmk.yml` with `compatibility` section~~ — **REVERT: .zmk.yml is being removed entirely (not needed; shield detection uses Kconfig.shield)**
+
+## 8. Build Error Fix: Missing include + Remove Duplicates (Post-Build #28)
+
+**Root Cause:** `totem_dongle.overlay` uses `&key_physical_attrs` macro in the physical layout `keys` section but is **missing `#include <physical_layouts.dtsi>`**. This causes `west build` to fail during devicetree processing, which prevents Kconfig from fully resolving — leaving `CONFIG_ZMK_BOARD_COMPAT=y` absent from `.config`. The GitHub Actions post-build check then triggers the "Missing ZMK Compat" error.
+
+**Secondary issues:**
+- `boards/xiao_ble_zmk.overlay` duplicates `/mipi_dbi/st7789v@0` already provided by YADS's `dongle_screen/boards/xiao_ble_zmk.overlay` → devicetree node conflict
+- `totem_dongle.zmk.yml` is unnecessary (shield detection uses `Kconfig.shield`) and may interfere with ZMK's shield resolution
+
+- [ ] 8.1 Add `#include <physical_layouts.dtsi>` to `boards/shields/totem_dongle/totem_dongle.overlay` (after `#include <dt-bindings/zmk/matrix_transform.h>`)
+- [ ] 8.2 Delete `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay` (display hardware provided by YADS dongle_screen shield)
+- [ ] 8.3 Delete `boards/shields/totem_dongle/totem_dongle.zmk.yml` (unnecessary, shield detection uses Kconfig.shield)
+- [ ] 8.4 Commit and push fixes
+- [ ] 8.5 Rebuild and verify totem_dongle artifact is produced
+- [ ] 8.6 Verify build logs show no "Missing ZMK Compat" errors
 

@@ -82,26 +82,43 @@ YADS's `main` branch targets ZMK v0.3 / Zephyr 3.5 and is incompatible with ZMK 
 2. **ZMK Studio on dongle:** The user's keyboard config has ZMK Studio disabled. If Studio is needed on the dongle in the future, the dongle overlay needs the `zmk,studio` chosen node and `zmk-studio` snippet. Deferred.
 3. **Physical key positions for ZMK Studio:** The dongle overlay will include the full `totem_physical_layout` with key positions copied from `totem.dtsi`. If Studio integration is not needed, a simplified layout (without `keys` property) suffices. **Decision:** Include full keys for future Studio readiness.
 
-## Implementation Notes (Post-Build #27)
+## Implementation Notes (Post-Build #27, #28)
 
-### Board-Specific Overlay Requirement
+### Issue #1: Missing `#include <physical_layouts.dtsi>` (Build #27, #28)
 
-**Issue:** Initial build failed with "Missing ZMK Compat: The selected board is not set up for ZMK and there is a ZMK variant available."
+**Symptom:** "Missing ZMK Compat: The selected board is not set up for ZMK and there is a ZMK variant available."
 
-**Root Cause:** ZMK requires shields to declare board compatibility via:
-1. A `boards/` subdirectory containing board-specific overlay files (e.g., `boards/xiao_ble_zmk.overlay`)
-2. A `compatibility` section in the shield's `.zmk.yml` metadata file
+**Root Cause:** `totem_dongle.overlay` uses `&key_physical_attrs` in the physical layout `keys` section (copied from `totem.dtsi`) but is missing the necessary include. Compare:
 
-**Resolution:**
-- Created `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay` that combines:
-  - Base `totem_dongle.overlay` (mock kscan, matrix transform, physical layout) via `#include`
-  - Display hardware configuration (SPI3, PWM1, ST7789V init params) copied from YADS's `dongle_screen/boards/xiao_ble_zmk.overlay`
-  - APDS9960 sensor node explicitly omitted (hardware not present)
-- Updated `totem_dongle.zmk.yml` with `compatibility` section:
-  ```yaml
-  compatibility:
-    - id: xiao_ble
-      board_filter: xiao_ble.*
-  ```
+```
+totem.dtsi:          #include <dt-bindings/zmk/matrix_transform.h>
+                     #include <physical_layouts.dtsi>   ← PRESENT: defines key_physical_attrs
+totem_dongle.overlay: #include <dt-bindings/zmk/matrix_transform.h>
+                     ← MISSING: key_physical_attrs is undefined!
+```
 
-**Lesson:** When creating a custom shield that stacks with another shield (like `dongle_screen`), the custom shield must provide its own board-specific overlay even if the stacked shield already has one. ZMK's shield compatibility checking happens per-shield, not for the combined shield list.
+Without this include, `west build` fails during devicetree processing. The Kconfig phase runs first and writes a partial `.config`, but the failure prevents `CONFIG_ZMK_BOARD_COMPAT=y` from being resolved. The GitHub Actions post-build compatibility check then detects the missing symbol and reports the misleading "Missing ZMK Compat" error.
+
+**Resolution:** Add `#include <physical_layouts.dtsi>` to `totem_dongle.overlay`.
+
+### Issue #2: Duplicate Display Hardware in Board Overlay (Build #28)
+
+**Symptom:** Same "Missing ZMK Compat" error persists after adding `boards/xiao_ble_zmk.overlay`.
+
+**Root Cause:** The `boards/xiao_ble_zmk.overlay` inside `totem_dongle` duplicated the ST7789V display hardware configuration (`/mipi_dbi/st7789v@0`, SPI3 pinout, PWM1 backlight) already provided by YADS's `dongle_screen/boards/xiao_ble_zmk.overlay`. When both shields are loaded for the same board, Zephyr encounters a devicetree node conflict (same node path defined twice).
+
+**Resolution:** Delete `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay`. The `totem_dongle` shield's overlay should ONLY contain keyboard-specific configuration (mock kscan, matrix transform, physical layout). Display hardware configuration comes exclusively from YADS's `dongle_screen` shield.
+
+### Issue #3: Unnecessary `.zmk.yml` (Build #27, #28)
+
+**Root Cause:** `totem_dongle.zmk.yml` with a `compatibility` section was added unnecessarily. ZMK shield detection uses `Kconfig.shield` (`$(shields_list_contains,totem_dongle)`), not `.zmk.yml`. An incorrectly formatted `.zmk.yml` may interfere with ZMK's shield resolution and board variant detection.
+
+**Resolution:** Delete `totem_dongle.zmk.yml`. Other shields in this project (totem_left, totem_right) function correctly without one.
+
+### Architecture Clarification: Shield Layering
+
+When `shield: totem_dongle dongle_screen` is specified, ZMK layers both shields:
+- `totem_dongle` provides: keyboard-specific config (Kconfig role defaults, mock kscan, matrix transform, physical layout)
+- `dongle_screen` provides: display hardware (SPI3 clock/pins, ST7789V init params, PWM backlight, LVGL integration)
+
+Each shield handles what it's responsible for. The custom dongle shield should NOT duplicate hardware configuration from the display shield.
