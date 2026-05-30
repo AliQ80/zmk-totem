@@ -1,6 +1,6 @@
 # Totem ZMK Configuration
 
-Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com/GEIGEIGEIST/totem) split keyboard with **Dual battery monitoring**.
+Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com/GEIGEIGEIST/totem) split keyboard with **Dual battery monitoring** and optional **YADS status display dongle**.
 
 ## Features
 
@@ -10,6 +10,7 @@ Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com
 - **Homerow mods** for comfortable modifier access
 - **Mouse support** with scroll and movement controls
 - **Combos** for quick access to ESC, dictation, and special characters
+- **YADS Dongle Display** (optional) - Real-time status screen showing layer, modifiers, WPM, output status, and battery levels
 
 ## Layers
 
@@ -43,19 +44,71 @@ Function keys and Bluetooth device switching.
 
 ## Installation
 
+### Standalone Mode (No Dongle)
+
 1. Fork this repository
 2. Enable GitHub Actions in your fork
 3. Modify `config/totem.keymap` as needed
 4. Push changes to trigger automatic firmware build
 5. Download firmware from Actions artifacts
-6. Flash `totem_left-seeeduino_xiao_ble-zmk.uf2` to left half
-7. Flash `totem_right-seeeduino_xiao_ble-zmk.uf2` to right half
+6. Flash `totem_left-xiao_ble-zmk.uf2` to left half
+7. Flash `totem_right-xiao_ble-zmk.uf2` to right half
+
+### Dongle Mode (Recommended)
+
+The Totem can be used with a Prospector-style BLE dongle featuring a status display. This improves battery life on both keyboard halves and provides real-time visibility of layer, modifiers, WPM, output status, and battery levels.
+
+**Hardware:** Seeed Studio XIAO nRF52840 + Waveshare 1.69" LCD (ST7789V, 240x280)
+
+**Build Artifacts:**
+- `totem_dongle-xiao_ble-zmk.uf2` - Dongle firmware with YADS display
+- `totem_left-xiao_ble-zmk.uf2` - Left half (peripheral mode)
+- `totem_right-xiao_ble-zmk.uf2` - Right half (peripheral mode)
+- `settings_reset_dongle-xiao_ble-zmk.uf2` - Clear dongle BLE bonds
+- `settings_reset_keyboard-xiao_ble-zmk.uf2` - Clear keyboard half BLE bonds
+
+**Flashing Procedure:**
+
+1. **Clear existing bonds:** Flash `settings_reset_dongle` to the dongle and `settings_reset_keyboard` to both keyboard halves
+2. **Flash dongle:** Flash `totem_dongle-xiao_ble-zmk.uf2` to the dongle
+3. **Flash peripherals:** Flash `totem_left` and `totem_right` UF2 files to their respective halves
+4. **Power cycle:** Disconnect and reconnect all devices
+
+**Pairing Sequence:**
+
+1. Power on the dongle (plug into USB)
+2. Power on the **left half first** - wait for the left battery indicator to appear on the dongle display
+3. Power on the **right half** - the right battery indicator should appear next
+
+> **Important:** The pairing order determines battery widget ordering. Left half must pair first for correct display.
+
+**YADS Display Features:**
+
+- **Brightness Control:** Press F24 to increase, F23 to decrease, F22 to toggle on/off
+- **Idle Timeout:** Display dims after 10 minutes of inactivity, wakes on any keypress
+- **Widgets:** Shows active layer, modifier keys, WPM typing speed, BLE output status, and battery levels for both halves
+- **Output Status:** White = USB active, Green = BLE connected, Blue = BLE bonded, White = profile empty
+
+**Rollback to Standalone Mode:**
+
+To revert to non-dongle operation:
+1. Edit `build.yaml` and remove the `cmake-args` lines from `totem_left` and `totem_right` targets
+2. Remove the `totem_dongle dongle_screen` and `settings_reset_dongle` build targets
+3. Flash `settings_reset_keyboard` to all devices
+4. Build and flash the reverted firmware to both halves
 
 ## Hardware
 
 - **Keyboard:** GEIGEIGEIST Totem (38-key split)
 - **Controller:** Seeeduino XIAO BLE (nRF52840)
 - **Firmware:** ZMK
+
+### Optional Dongle Hardware
+
+- **Board:** Seeed Studio XIAO nRF52840
+- **Display:** Waveshare 1.69" LCD (240x280, ST7789V controller, SPI interface)
+- **Firmware:** ZMK with YADS (Yet Another Dongle Screen) module
+- **Display Features:** PWM backlight control, idle timeout dimming, brightness adjustment via F-keys (F22/F23/F24)
 
 ### Optional Features
 
@@ -88,12 +141,14 @@ To change the Bluetooth device name:
    CONFIG_ZMK_KEYBOARD_NAME="Your Custom Name"
    ```
 
-2. Build the firmware (GitHub Actions will create 3 files including `settings_reset`)
+2. Build the firmware (GitHub Actions will create 5 files including settings_reset for both dongle and keyboard)
 
 3. Flash the firmware:
-   - Flash `settings_reset-seeeduino_xiao_ble-zmk.uf2` to both halves
-   - Flash `totem_left-seeeduino_xiao_ble-zmk.uf2` to left half
-   - Flash `totem_right-seeeduino_xiao_ble-zmk.uf2` to right half
+   - Flash `settings_reset_dongle-xiao_ble-zmk.uf2` to the dongle
+   - Flash `settings_reset_keyboard-xiao_ble-zmk.uf2` to both halves
+   - Flash `totem_dongle-xiao_ble-zmk.uf2` to the dongle
+   - Flash `totem_left-xiao_ble-zmk.uf2` to left half
+   - Flash `totem_right-xiao_ble-zmk.uf2` to right half
 
 4. Clear Bluetooth bonds on the keyboard using `BT_CLR_ALL`
 

@@ -1,8 +1,21 @@
 include:
+  # Dongle with YADS display
   - board: xiao_ble//zmk
-    shield: totem_left
-  - board: xiao_ble//zmk
-    shield: totem_right
+    shield: totem_dongle dongle_screen
+    artifact-name: totem_dongle
+  # Dongle settings reset
   - board: xiao_ble//zmk
     shield: settings_reset
+    artifact-name: settings_reset_dongle
+  # Keyboard halves as peripherals
+  - board: xiao_ble//zmk
+    shield: totem_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: xiao_ble//zmk
+    shield: totem_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  # Keyboard settings reset
+  - board: xiao_ble//zmk
+    shield: settings_reset
+    artifact-name: settings_reset_keyboard
 
