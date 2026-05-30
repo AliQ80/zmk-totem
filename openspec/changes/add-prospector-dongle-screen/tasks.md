@@ -44,3 +44,12 @@
 - [x] 6.4 Verify ST7789V devicetree node is resolved (check build output for `st7789v@0` binding success)
 
 > **Note:** Verification tasks 6.1-6.4 require pushing to GitHub and checking the Actions build log. The configuration is complete and ready for build verification.
+
+## 7. Build Error Fixes (Post-Build #27)
+
+- [x] 7.1 Create `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay` with board-specific display hardware configuration (SPI3, PWM, ST7789V init params) + mock kscan + matrix transform
+- [x] 7.2 Update `totem_dongle.zmk.yml` with `compatibility` section declaring `xiao_ble` board compatibility
+- [x] 7.3 Verify APDS9960 sensor node is NOT instantiated (hardware omitted per design)
+- [ ] 7.4 Rebuild and verify all 5 UF2 artifacts are produced successfully
+- [ ] 7.5 Verify build logs show no "Missing ZMK Compat" errors
+

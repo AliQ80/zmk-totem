@@ -3,3 +3,12 @@ name: Totem Dongle
 type: shield
 url: https://github.com/GEIGEIGEIST/totem
 archive: false
+requires: [i2c, spi, pwm, gpio]
+exposes: []
+features:
+  - display
+  - dongle
+  - battery-monitoring
+compatibility:
+  - id: xiao_ble
+    board_filter: xiao_ble.*
