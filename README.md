@@ -1,6 +1,6 @@
 # Totem ZMK Configuration
 
-Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com/GEIGEIGEIST/totem) split keyboard with **Dual battery monitoring** and optional **YADS status display dongle**.
+Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com/GEIGEIGEIST/totem) split keyboard with **Dual battery monitoring** and optional **Prospector status display dongle**.
 
 ## Features
 
@@ -10,7 +10,7 @@ Custom ZMK firmware configuration for the [GEIGEIGEIST Totem](https://github.com
 - **Homerow mods** for comfortable modifier access
 - **Mouse support** with scroll and movement controls
 - **Combos** for quick access to ESC, dictation, and special characters
-- **YADS Dongle Display** (optional) - Real-time status screen showing layer, modifiers, WPM, output status, and battery levels
+- **Prospector Dongle Display** (optional) - Real-time operator status screen showing layer, modifiers, WPM, output status, and battery levels
 
 ## Layers
 
@@ -61,7 +61,7 @@ The Totem can be used with a Prospector-style BLE dongle featuring a status disp
 **Hardware:** Seeed Studio XIAO nRF52840 + Waveshare 1.69" LCD (ST7789V, 240x280)
 
 **Build Artifacts:**
-- `totem_dongle-xiao_ble-zmk.uf2` - Dongle firmware with YADS display
+- `totem_dongle-xiao_ble-zmk.uf2` - Dongle firmware with Prospector operator screen
 - `totem_left-xiao_ble-zmk.uf2` - Left half (peripheral mode)
 - `totem_right-xiao_ble-zmk.uf2` - Right half (peripheral mode)
 - `settings_reset_dongle-xiao_ble-zmk.uf2` - Clear dongle BLE bonds
@@ -82,18 +82,17 @@ The Totem can be used with a Prospector-style BLE dongle featuring a status disp
 
 > **Important:** The pairing order determines battery widget ordering. Left half must pair first for correct display.
 
-**YADS Display Features:**
+**Prospector Display Features:**
 
-- **Brightness Control:** Press F24 to increase, F23 to decrease, F22 to toggle on/off
-- **Idle Timeout:** Display dims after 10 minutes of inactivity, wakes on any keypress
-- **Widgets:** Shows active layer, modifier keys, WPM typing speed, BLE output status, and battery levels for both halves
-- **Output Status:** White = USB active, Green = BLE connected, Blue = BLE bonded, White = profile empty
+- **Operator Layout:** Information-dense display with layer wheel, modifier indicators, WPM, BLE output status, and battery bars for up to 3 peripherals
+- **Four Layout Options:** Switch between Classic, Radii, Field, and Operator layouts via `.conf` config
+- **Fixed Brightness:** Set via `CONFIG_PROSPECTOR_FIXED_BRIGHTNESS` (manual brightness via `&inc_bri`/`&dec_bri` behaviors coming in a future update via [PR #23](https://github.com/carrefinho/prospector-zmk-module/pull/23))
 
 **Rollback to Standalone Mode:**
 
 To revert to non-dongle operation:
 1. Edit `build.yaml` and remove the `cmake-args` lines from `totem_left` and `totem_right` targets
-2. Remove the `totem_dongle dongle_screen` and `settings_reset_dongle` build targets
+2. Remove the `totem_dongle prospector_adapter` and `settings_reset_dongle` build targets
 3. Flash `settings_reset_keyboard` to all devices
 4. Build and flash the reverted firmware to both halves
 
@@ -107,8 +106,8 @@ To revert to non-dongle operation:
 
 - **Board:** Seeed Studio XIAO nRF52840
 - **Display:** Waveshare 1.69" LCD (240x280, ST7789V controller, SPI interface)
-- **Firmware:** ZMK with YADS (Yet Another Dongle Screen) module
-- **Display Features:** PWM backlight control, idle timeout dimming, brightness adjustment via F-keys (F22/F23/F24)
+- **Firmware:** ZMK with Prospector ZMK module
+- **Display Features:** PWM backlight control, fixed brightness config, four status screen layouts (Operator selected)
 
 ### Optional Features
 

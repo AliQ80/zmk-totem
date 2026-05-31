@@ -1,7 +1,7 @@
 include:
-  # Dongle with YADS display
+  # Dongle with Prospector operator screen
   - board: xiao_ble//zmk
-    shield: totem_dongle dongle_screen
+    shield: totem_dongle prospector_adapter
     artifact-name: totem_dongle
   # Dongle settings reset
   - board: xiao_ble//zmk
