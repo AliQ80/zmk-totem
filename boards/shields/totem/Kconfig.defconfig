@@ -13,4 +13,7 @@ if SHIELD_TOTEM_LEFT || SHIELD_TOTEM_RIGHT
 config ZMK_SPLIT
     default y
 
+config ZMK_SPLIT_BLE_PERIPHERAL_POSITION_QUEUE_SIZE
+    default 20
+
 endif

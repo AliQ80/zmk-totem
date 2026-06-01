@@ -60,10 +60,10 @@
 - `boards/xiao_ble_zmk.overlay` duplicates `/mipi_dbi/st7789v@0` already provided by YADS's `dongle_screen/boards/xiao_ble_zmk.overlay` → devicetree node conflict
 - `totem_dongle.zmk.yml` is unnecessary (shield detection uses `Kconfig.shield`) and may interfere with ZMK's shield resolution
 
-- [ ] 8.1 Add `#include <physical_layouts.dtsi>` to `boards/shields/totem_dongle/totem_dongle.overlay` (after `#include <dt-bindings/zmk/matrix_transform.h>`)
-- [ ] 8.2 Delete `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay` (display hardware provided by YADS dongle_screen shield)
-- [ ] 8.3 Delete `boards/shields/totem_dongle/totem_dongle.zmk.yml` (unnecessary, shield detection uses Kconfig.shield)
-- [ ] 8.4 Commit and push fixes
+- [x] 8.1 Add `#include <physical_layouts.dtsi>` to `boards/shields/totem_dongle/totem_dongle.overlay` (after `#include <dt-bindings/zmk/matrix_transform.h>`)
+- [x] 8.2 Delete `boards/shields/totem_dongle/boards/xiao_ble_zmk.overlay` (display hardware provided by YADS dongle_screen shield)
+- [x] 8.3 Delete `boards/shields/totem_dongle/totem_dongle.zmk.yml` (unnecessary, shield detection uses Kconfig.shield)
+- [x] 8.4 Commit and push fixes
 - [ ] 8.5 Rebuild and verify totem_dongle artifact is produced
 - [ ] 8.6 Verify build logs show no "Missing ZMK Compat" errors
 
