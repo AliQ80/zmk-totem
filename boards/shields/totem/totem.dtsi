@@ -11,13 +11,13 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &totem_physical_layout;
-        zmk,battery = &vbatt;
+        /* zmk,battery = &vbatt; */
     };
 
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-        label = "BATTERY";
-    };
+    /* vbatt: vbatt { */
+    /*     compatible = "zmk,battery-nrf-vddh"; */
+    /*     label = "BATTERY"; */
+    /* }; */
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
