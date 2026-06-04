@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: totem}
 layers:
-  base:
+  Base:
   - Q
   - W
   - F
@@ -33,13 +33,13 @@ layers:
   - .
   - /
   - ⮐
-  - {t: TAB, h: mod}
+  - {t: TAB, h: Mod}
   - ⌫ ^⌫ L1
   - '&ls_cw'
   - '&rs_cw'
-  - {t: ␣, h: nav}
-  - {t: '''', h: adj}
-  gallium_layout:
+  - {t: ␣, h: Nav}
+  - {t: '''', h: ' adj'}
+  Gallium:
   - B
   - L
   - D
@@ -78,7 +78,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  arabic:
+  'Arabic ':
   - '&sad_dhad'
   - {t: E, s: A}
   - {t: R, s: S}
@@ -117,7 +117,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  code:
+  Code:
   - '!'
   - '@'
   - '#'
@@ -156,7 +156,7 @@ layers:
   - ','
   - '0'
   - .
-  nav:
+  Nav:
   - {t: ▽, type: trans}
   - WH↑
   - MS↑
@@ -195,7 +195,7 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  mod:
+  Mod:
   - 🔒Mac
   - 🔒Win
   - {t: ▽, type: trans}
@@ -234,7 +234,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  adj:
+  ' adj':
   - ''
   - F7
   - F8
@@ -276,14 +276,14 @@ layers:
 combos:
 - p: [0, 1]
   k: ESC
-  l: [base]
+  l: [Base]
 - p: [26, 27]
   k: Alt+SPACE
-  l: [base]
+  l: [Base]
 - p: [8, 9]
   k: AltGr+N
-  l: [base]
+  l: [Base]
 - p: [30, 29]
   k: '&lang_lx'
 - p: [21, 22]
-  k: {t: gallium_layout, h: toggle}
+  k: {t: Gallium, h: toggle}
