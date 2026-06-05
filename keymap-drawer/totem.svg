@@ -133,8 +133,8 @@ text.label, text.footer { stroke: black; }
 text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 </style>
-<g transform="translate(30, 0)" class="layer-Base">
-<text x="0" y="28" class="label" id="Base">Base:</text>
+<g transform="translate(30, 0)" class="layer-0. Base">
+<text x="0" y="28" class="label" id="Base">0. Base:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(78, 113) rotate(-10.0)" class="key keypos-0">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
@@ -276,7 +276,7 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
 <text x="0" y="0" class="key tap">TAB</text>
 <a href="#Mod">
-<text x="0" y="24" class="key hold layer-activator">Mod</text>
+<text x="0" y="24" class="key hold layer-activator">5. Mod</text>
 </a></g>
 <g transform="translate(320, 245) rotate(15.0)" class="key keypos-33">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
@@ -296,13 +296,13 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
 <text x="0" y="0" class="key tap">␣</text>
 <a href="#Nav">
-<text x="0" y="24" class="key hold layer-activator">Nav</text>
+<text x="0" y="24" class="key hold layer-activator">4. Nav</text>
 </a></g>
 <g transform="translate(596, 236)" class="key keypos-37">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
 <text x="0" y="0" class="key tap">&#x27;</text>
 <a href="#adj">
-<text x="0" y="24" class="key hold layer-activator"> adj</text>
+<text x="0" y="24" class="key hold layer-activator">6. adj</text>
 </a></g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="97" y="74" width="28" height="26" class="combo"/>
@@ -325,13 +325,15 @@ path.combo { stroke: #7f7f7f; }
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="110" y="185" width="28" height="26" class="combo"/>
 <a href="#Gallium">
-<text x="124" y="198" class="combo tap layer-activator">Gallium</text>
+<text x="124" y="198" class="combo tap layer-activator">
+<tspan x="124" dy="-0.6em">1.</tspan><tspan x="124" dy="1.2em">Gallium</tspan>
+</text>
 </a><text x="124" y="209" class="combo hold">toggle</text>
 </g>
 </g>
 </g>
-<g transform="translate(30, 366)" class="layer-Gallium">
-<text x="0" y="28" class="label" id="Gallium">Gallium:</text>
+<g transform="translate(30, 366)" class="layer-1. Gallium">
+<text x="0" y="28" class="label" id="Gallium">1. Gallium:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(78, 113) rotate(-10.0)" class="key keypos-0">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
@@ -492,13 +494,15 @@ path.combo { stroke: #7f7f7f; }
 <g class="combo combopos-1">
 <rect rx="6" ry="6" x="110" y="185" width="28" height="26" class="combo"/>
 <a href="#Gallium">
-<text x="124" y="198" class="combo tap layer-activator">Gallium</text>
+<text x="124" y="198" class="combo tap layer-activator">
+<tspan x="124" dy="-0.6em">1.</tspan><tspan x="124" dy="1.2em">Gallium</tspan>
+</text>
 </a><text x="124" y="209" class="combo hold">toggle</text>
 </g>
 </g>
 </g>
-<g transform="translate(30, 731)" class="layer-Arabic ">
-<text x="0" y="28" class="label" id="Arabic-">Arabic :</text>
+<g transform="translate(30, 731)" class="layer-2. Arabic ">
+<text x="0" y="28" class="label" id="Arabic-">2. Arabic :</text>
 <g transform="translate(0, 56)">
 <g transform="translate(78, 113) rotate(-10.0)" class="key keypos-0">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
@@ -680,13 +684,15 @@ path.combo { stroke: #7f7f7f; }
 <g class="combo combopos-1">
 <rect rx="6" ry="6" x="110" y="185" width="28" height="26" class="combo"/>
 <a href="#Gallium">
-<text x="124" y="198" class="combo tap layer-activator">Gallium</text>
+<text x="124" y="198" class="combo tap layer-activator">
+<tspan x="124" dy="-0.6em">1.</tspan><tspan x="124" dy="1.2em">Gallium</tspan>
+</text>
 </a><text x="124" y="209" class="combo hold">toggle</text>
 </g>
 </g>
 </g>
-<g transform="translate(30, 1097)" class="layer-Code">
-<text x="0" y="28" class="label" id="Code">Code:</text>
+<g transform="translate(30, 1097)" class="layer-3. Code">
+<text x="0" y="28" class="label" id="Code">3. Code:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(78, 113) rotate(-10.0)" class="key keypos-0">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
@@ -855,13 +861,15 @@ path.combo { stroke: #7f7f7f; }
 <g class="combo combopos-1">
 <rect rx="6" ry="6" x="110" y="185" width="28" height="26" class="combo"/>
 <a href="#Gallium">
-<text x="124" y="198" class="combo tap layer-activator">Gallium</text>
+<text x="124" y="198" class="combo tap layer-activator">
+<tspan x="124" dy="-0.6em">1.</tspan><tspan x="124" dy="1.2em">Gallium</tspan>
+</text>
 </a><text x="124" y="209" class="combo hold">toggle</text>
 </g>
 </g>
 </g>
-<g transform="translate(30, 1462)" class="layer-Nav">
-<text x="0" y="28" class="label" id="Nav">Nav:</text>
+<g transform="translate(30, 1462)" class="layer-4. Nav">
+<text x="0" y="28" class="label" id="Nav">4. Nav:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(78, 113) rotate(-10.0)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key trans"/>
@@ -1025,13 +1033,15 @@ path.combo { stroke: #7f7f7f; }
 <g class="combo combopos-1">
 <rect rx="6" ry="6" x="110" y="185" width="28" height="26" class="combo"/>
 <a href="#Gallium">
-<text x="124" y="198" class="combo tap layer-activator">Gallium</text>
+<text x="124" y="198" class="combo tap layer-activator">
+<tspan x="124" dy="-0.6em">1.</tspan><tspan x="124" dy="1.2em">Gallium</tspan>
+</text>
 </a><text x="124" y="209" class="combo hold">toggle</text>
 </g>
 </g>
 </g>
-<g transform="translate(30, 1828)" class="layer-Mod">
-<text x="0" y="28" class="label" id="Mod">Mod:</text>
+<g transform="translate(30, 1828)" class="layer-5. Mod">
+<text x="0" y="28" class="label" id="Mod">5. Mod:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(78, 113) rotate(-10.0)" class="key keypos-0">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
@@ -1194,13 +1204,15 @@ path.combo { stroke: #7f7f7f; }
 <g class="combo combopos-1">
 <rect rx="6" ry="6" x="110" y="185" width="28" height="26" class="combo"/>
 <a href="#Gallium">
-<text x="124" y="198" class="combo tap layer-activator">Gallium</text>
+<text x="124" y="198" class="combo tap layer-activator">
+<tspan x="124" dy="-0.6em">1.</tspan><tspan x="124" dy="1.2em">Gallium</tspan>
+</text>
 </a><text x="124" y="209" class="combo hold">toggle</text>
 </g>
 </g>
 </g>
-<g transform="translate(30, 2193)" class="layer- adj">
-<text x="0" y="28" class="label" id="adj"> adj:</text>
+<g transform="translate(30, 2193)" class="layer-6. adj">
+<text x="0" y="28" class="label" id="adj">6. adj:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(78, 113) rotate(-10.0)" class="key keypos-0">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
@@ -1229,9 +1241,11 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(639, 28)" class="key trans keypos-7">
-<rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(639, 28)" class="key keypos-7">
+<rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">OUT</tspan><tspan x="0" dy="1.2em">TOG</tspan>
+</text>
 </g>
 <g transform="translate(706, 62) rotate(4.0)" class="key trans keypos-8">
 <rect rx="6" ry="6" x="-28" y="-26" width="55" height="52" class="key trans"/>
@@ -1359,7 +1373,9 @@ path.combo { stroke: #7f7f7f; }
 <g class="combo combopos-1">
 <rect rx="6" ry="6" x="110" y="185" width="28" height="26" class="combo"/>
 <a href="#Gallium">
-<text x="124" y="198" class="combo tap layer-activator">Gallium</text>
+<text x="124" y="198" class="combo tap layer-activator">
+<tspan x="124" dy="-0.6em">1.</tspan><tspan x="124" dy="1.2em">Gallium</tspan>
+</text>
 </a><text x="124" y="209" class="combo hold">toggle</text>
 </g>
 </g>
