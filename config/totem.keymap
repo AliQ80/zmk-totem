@@ -2,6 +2,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
@@ -302,11 +303,16 @@
             wait-ms = <20>;
             tap-ms = <20>;
             bindings =
-                <&macro_press &kp LGUI>,
-                <&macro_press &kp LCTRL>,
-                <&macro_tap &kp X>,
-                <&macro_release &kp LCTRL>,
-                <&macro_release &kp LGUI>;
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp X>,
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&macro_release>,
+                <&kp LGUI>;
 
             label = "MC_VOX";
         };
@@ -341,7 +347,7 @@
         compatible = "zmk,keymap";
 
         base_layer {
-            display-name = "Base"; 
+            display-name = "0. Base";
             bindings = <
          &kp Q         &kp W        &kp F        &kp P          &kp B     &kp J   &kp L         &kp U               &kp Y        &kp SEMI
          &hml LCTRL A  &hml LALT R  &hml LGUI S  &hml LSHIFT T  &kp G     &kp M   &hmr RSHFT N  &hmr RGUI E         &hmr RALT I  &hmr RCTRL O
@@ -351,7 +357,7 @@
         };
 
         gallium_layout {
-            display-name = "Gallium"; 
+            display-name = "1. Gallium";
             bindings = <
         &kp B  &kp L  &kp D   &kp C   &kp V     &kp J   &kp Y   &kp O     &kp U     &kp COMMA
         &kp N  &kp R  &kp T   &kp S   &kp G     &kp P   &kp H   &kp A     &kp E     &kp I
@@ -361,7 +367,7 @@
         };
 
         arabic_layer {
-            display-name = "Arabic "; 
+            display-name = "2. Arabic ";
             bindings = <
         &sad_dhad     &E_thaa      &R_qaf       &T_faa        &Y_ghain    &U_ain   &haa_taa      &kp O        &kp P        &kp LEFT_BRACKET
         &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &G_lam      &H_alif  &hmr RSHFT J  &hmr RGUI K  &hmr RALT L  &hmr RCTRL SEMI
@@ -371,7 +377,7 @@
         };
 
         code_layer {
-            display-name = "Code"; 
+            display-name = "3. Code";
             bindings = <
            &kp EXCL         &kp AT          &kp HASH        &kp DLLR         &kp PRCNT    &kp FSLH   &kp N7         &kp N8        &kp N9        &kp STAR
            &hml LCTRL LBKT  &hml LALT RBKT  &hml LGUI LPAR  &hml LSHFT RPAR  &kp UNDER    &kp MINUS  &hmr RSHFT N4  &hmr RGUI N5  &hmr RALT N6  &hmr RCTRL PLUS
@@ -381,7 +387,7 @@
         };
 
         nav_layer {
-            display-name = "Nav"; 
+            display-name = "4. Nav";
             bindings = <
         &trans          &msc SCRL_UP    &mmv MOVE_UP    &mkp MB3         &trans             &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp DEL
         &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp INS
@@ -391,7 +397,7 @@
         };
 
         mod_layer {
-            display-name = "Mod"; 
+            display-name = "5. Mod";
             bindings = <
         &mac_lock  &win_lock  &trans     &trans     &trans    &kp C_PREV    &kp C_PP    &kp C_NEXT    &kp C_BRI_UP  &trans
         &kp CAPS   &sk LALT   &sk LSHFT  &sk LCTRL  &trans    &kp BSPC      &kp DEL     &kp SPACE     &kp ENTER     &kp TAB
@@ -405,13 +411,14 @@
          * - To enable: uncomment studio lines in totem.conf, replace &none with
          *   &studio_unlock, and add snippet+cmake-args to build.yaml (left side only)
          */
+
         adj_layer {
-            display-name = " adj"; 
+            display-name = "6. adj";
             bindings = <
-        &none  &kp F7  &kp F8  &kp F9  &kp F12    &trans  &trans        &trans        &trans        &bt BT_CLR_ALL
-        &trans          &kp F4  &kp F5  &kp F6  &kp F11    &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans
-&trans  &trans          &kp F1  &kp F2  &kp F3  &kp F10    &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR      &trans
-                                &trans  &trans  &trans     &trans  &trans        &trans
+        &none   &kp F7  &kp F8  &kp F9  &kp F12    &trans  &trans        &out OUT_TOG  &trans        &bt BT_CLR_ALL
+        &trans  &kp F4  &kp F5  &kp F6  &kp F11    &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans
+&trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10    &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR      &trans
+                        &trans  &trans  &trans     &trans  &trans        &trans
             >;
         };
     };
